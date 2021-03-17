@@ -6,12 +6,17 @@ PyQt based control panel for the locomotion of snake robot
 - Amplitude
 - Frequency
 
-## Pipe Crawling gait
+## Pipe-Crawling gait
+- Amplitude
+- Phi
+- Nu
+- Frequency
+
+## Sidewinding gait
 - Amplitude
 - Frequency
-- Nu
 
-## Vertical gait
+## Verticalsine gait
 - Amplitude
 - Frequency
 - Phase
