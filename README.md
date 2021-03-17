@@ -19,4 +19,13 @@ PyQt based control panel for the locomotion of snake robot
 ## Verticalsine gait
 - Amplitude
 - Frequency
-- Phase
+
+## Rotating gait
+- Vertical Amplitude
+- Horizontal Amplitude
+- Frequency
+
+## Sinuslifting gait
+- Vertical Amplitude
+- Horizontal Amplitude
+- Frequency
