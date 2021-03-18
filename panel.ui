@@ -1,0 +1,2053 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>GaitContorl</class>
+ <widget class="QDockWidget" name="GaitContorl">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>673</width>
+    <height>357</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>DockWidget</string>
+  </property>
+  <widget class="QWidget" name="dockWidgetContents">
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>20</y>
+      <width>611</width>
+      <height>261</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="Rolling">
+     <attribute name="title">
+      <string>Rolling</string>
+     </attribute>
+     <widget class="QLabel" name="rolling_freq_label">
+      <property name="geometry">
+       <rect>
+        <x>484</x>
+        <y>80</y>
+        <width>31</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QSlider" name="rolling_freq">
+      <property name="geometry">
+       <rect>
+        <x>204</x>
+        <y>70</y>
+        <width>241</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>20</number>
+      </property>
+      <property name="pageStep">
+       <number>4</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="tickPosition">
+       <enum>QSlider::TicksAbove</enum>
+      </property>
+      <property name="tickInterval">
+       <number>0</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="rolling_amp_plus">
+      <property name="geometry">
+       <rect>
+        <x>454</x>
+        <y>30</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="rolling_freq_plus">
+      <property name="geometry">
+       <rect>
+        <x>454</x>
+        <y>80</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="rolling_amp_minus">
+      <property name="geometry">
+       <rect>
+        <x>174</x>
+        <y>30</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_12">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>80</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Frequency</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_13">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>30</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Amplitude</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QSlider" name="rolling_amp">
+      <property name="geometry">
+       <rect>
+        <x>204</x>
+        <y>20</y>
+        <width>241</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>20</number>
+      </property>
+      <property name="pageStep">
+       <number>4</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="tickPosition">
+       <enum>QSlider::TicksAbove</enum>
+      </property>
+      <property name="tickInterval">
+       <number>0</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="rolling_freq_minus">
+      <property name="geometry">
+       <rect>
+        <x>174</x>
+        <y>80</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QLabel" name="rolling_amp_label">
+      <property name="geometry">
+       <rect>
+        <x>484</x>
+        <y>30</y>
+        <width>31</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Sidewinding">
+     <attribute name="title">
+      <string>Sidewinding</string>
+     </attribute>
+     <widget class="QLabel" name="side_freq_label">
+      <property name="geometry">
+       <rect>
+        <x>484</x>
+        <y>80</y>
+        <width>31</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="side_amp_label">
+      <property name="geometry">
+       <rect>
+        <x>484</x>
+        <y>30</y>
+        <width>31</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_23">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>80</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Frequency</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="side_freq_minus">
+      <property name="geometry">
+       <rect>
+        <x>174</x>
+        <y>80</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="side_amp_minus">
+      <property name="geometry">
+       <rect>
+        <x>174</x>
+        <y>30</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_25">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>30</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Amplitude</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QSlider" name="side_freq">
+      <property name="geometry">
+       <rect>
+        <x>204</x>
+        <y>70</y>
+        <width>241</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>20</number>
+      </property>
+      <property name="pageStep">
+       <number>4</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="tickPosition">
+       <enum>QSlider::TicksAbove</enum>
+      </property>
+      <property name="tickInterval">
+       <number>0</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="side_amp">
+      <property name="geometry">
+       <rect>
+        <x>204</x>
+        <y>20</y>
+        <width>241</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>20</number>
+      </property>
+      <property name="pageStep">
+       <number>4</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="tickPosition">
+       <enum>QSlider::TicksAbove</enum>
+      </property>
+      <property name="tickInterval">
+       <number>0</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="side_freq_plus">
+      <property name="geometry">
+       <rect>
+        <x>454</x>
+        <y>80</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="side_amp_plus">
+      <property name="geometry">
+       <rect>
+        <x>454</x>
+        <y>30</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Vertical">
+     <attribute name="title">
+      <string>Vertical</string>
+     </attribute>
+     <widget class="QSlider" name="ver_freq">
+      <property name="geometry">
+       <rect>
+        <x>204</x>
+        <y>70</y>
+        <width>241</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>20</number>
+      </property>
+      <property name="pageStep">
+       <number>4</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="tickPosition">
+       <enum>QSlider::TicksAbove</enum>
+      </property>
+      <property name="tickInterval">
+       <number>0</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ver_freq_plus">
+      <property name="geometry">
+       <rect>
+        <x>454</x>
+        <y>80</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ver_amp_minus">
+      <property name="geometry">
+       <rect>
+        <x>174</x>
+        <y>30</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_27">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>80</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Frequency</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QSlider" name="ver_amp">
+      <property name="geometry">
+       <rect>
+        <x>204</x>
+        <y>20</y>
+        <width>241</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>20</number>
+      </property>
+      <property name="pageStep">
+       <number>4</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="tickPosition">
+       <enum>QSlider::TicksAbove</enum>
+      </property>
+      <property name="tickInterval">
+       <number>0</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ver_freq_minus">
+      <property name="geometry">
+       <rect>
+        <x>174</x>
+        <y>80</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QLabel" name="ver_amp_label">
+      <property name="geometry">
+       <rect>
+        <x>484</x>
+        <y>30</y>
+        <width>31</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="ver_amp_plus">
+      <property name="geometry">
+       <rect>
+        <x>454</x>
+        <y>30</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_29">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>30</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Amplitude</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="ver_freq_label">
+      <property name="geometry">
+       <rect>
+        <x>484</x>
+        <y>80</y>
+        <width>31</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Pipe">
+     <attribute name="title">
+      <string>Pipe-Crawling</string>
+     </attribute>
+     <widget class="QPushButton" name="pipe_phi_minus">
+      <property name="geometry">
+       <rect>
+        <x>174</x>
+        <y>130</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pipe_amp_minus">
+      <property name="geometry">
+       <rect>
+        <x>174</x>
+        <y>30</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QLabel" name="pipe_amp_label">
+      <property name="geometry">
+       <rect>
+        <x>484</x>
+        <y>30</y>
+        <width>31</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pipe_phi_plus">
+      <property name="geometry">
+       <rect>
+        <x>454</x>
+        <y>130</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_16">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>80</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Frequency</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="pipe_phi_label">
+      <property name="geometry">
+       <rect>
+        <x>484</x>
+        <y>130</y>
+        <width>31</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QSlider" name="pipe_phi">
+      <property name="geometry">
+       <rect>
+        <x>204</x>
+        <y>120</y>
+        <width>241</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>20</number>
+      </property>
+      <property name="pageStep">
+       <number>4</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="tickPosition">
+       <enum>QSlider::TicksAbove</enum>
+      </property>
+      <property name="tickInterval">
+       <number>0</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="pipe_freq_label">
+      <property name="geometry">
+       <rect>
+        <x>484</x>
+        <y>80</y>
+        <width>31</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="pipe_nu_label">
+      <property name="geometry">
+       <rect>
+        <x>484</x>
+        <y>180</y>
+        <width>31</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_20">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>180</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Nu</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QSlider" name="pipe_freq">
+      <property name="geometry">
+       <rect>
+        <x>204</x>
+        <y>70</y>
+        <width>241</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>20</number>
+      </property>
+      <property name="pageStep">
+       <number>4</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="tickPosition">
+       <enum>QSlider::TicksAbove</enum>
+      </property>
+      <property name="tickInterval">
+       <number>0</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="pipe_nu">
+      <property name="geometry">
+       <rect>
+        <x>204</x>
+        <y>170</y>
+        <width>241</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>20</number>
+      </property>
+      <property name="pageStep">
+       <number>4</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="tickPosition">
+       <enum>QSlider::TicksAbove</enum>
+      </property>
+      <property name="tickInterval">
+       <number>0</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="pipe_amp">
+      <property name="geometry">
+       <rect>
+        <x>204</x>
+        <y>20</y>
+        <width>241</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>20</number>
+      </property>
+      <property name="pageStep">
+       <number>4</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="tickPosition">
+       <enum>QSlider::TicksAbove</enum>
+      </property>
+      <property name="tickInterval">
+       <number>0</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pipe_freq_minus">
+      <property name="geometry">
+       <rect>
+        <x>174</x>
+        <y>80</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_21">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>130</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Phi</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pipe_amp_plus">
+      <property name="geometry">
+       <rect>
+        <x>454</x>
+        <y>30</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pipe_nu_plus">
+      <property name="geometry">
+       <rect>
+        <x>454</x>
+        <y>180</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pipe_nu_minus">
+      <property name="geometry">
+       <rect>
+        <x>174</x>
+        <y>180</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pipe_freq_plus">
+      <property name="geometry">
+       <rect>
+        <x>454</x>
+        <y>80</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_22">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>30</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Amplitude</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Sinuslifting">
+     <attribute name="title">
+      <string>Sinuslifting</string>
+     </attribute>
+     <widget class="QLabel" name="sinus_freq_label">
+      <property name="geometry">
+       <rect>
+        <x>484</x>
+        <y>130</y>
+        <width>31</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QSlider" name="sinus_freq">
+      <property name="geometry">
+       <rect>
+        <x>204</x>
+        <y>120</y>
+        <width>241</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>20</number>
+      </property>
+      <property name="pageStep">
+       <number>4</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="tickPosition">
+       <enum>QSlider::TicksAbove</enum>
+      </property>
+      <property name="tickInterval">
+       <number>0</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="sinus_veramp_label">
+      <property name="geometry">
+       <rect>
+        <x>484</x>
+        <y>30</y>
+        <width>31</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="sinus_freq_plus">
+      <property name="geometry">
+       <rect>
+        <x>454</x>
+        <y>130</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QSlider" name="sinus_veramp">
+      <property name="geometry">
+       <rect>
+        <x>204</x>
+        <y>20</y>
+        <width>241</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>20</number>
+      </property>
+      <property name="pageStep">
+       <number>4</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="tickPosition">
+       <enum>QSlider::TicksAbove</enum>
+      </property>
+      <property name="tickInterval">
+       <number>0</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="sinus_veramp_minus">
+      <property name="geometry">
+       <rect>
+        <x>174</x>
+        <y>30</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="sinus_veramp_plus">
+      <property name="geometry">
+       <rect>
+        <x>454</x>
+        <y>30</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_31">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>130</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Frequency</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="sinus_freq_minus">
+      <property name="geometry">
+       <rect>
+        <x>174</x>
+        <y>130</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_33">
+      <property name="geometry">
+       <rect>
+        <x>74</x>
+        <y>37</y>
+        <width>71</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Amplitude</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="sinus_horamp_label">
+      <property name="geometry">
+       <rect>
+        <x>484</x>
+        <y>80</y>
+        <width>31</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QSlider" name="sinus_horamp">
+      <property name="geometry">
+       <rect>
+        <x>204</x>
+        <y>70</y>
+        <width>241</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>20</number>
+      </property>
+      <property name="pageStep">
+       <number>4</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="tickPosition">
+       <enum>QSlider::TicksAbove</enum>
+      </property>
+      <property name="tickInterval">
+       <number>0</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="sinus_horamp_minus">
+      <property name="geometry">
+       <rect>
+        <x>174</x>
+        <y>80</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="sinus_horamp_plus">
+      <property name="geometry">
+       <rect>
+        <x>454</x>
+        <y>80</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_36">
+      <property name="geometry">
+       <rect>
+        <x>74</x>
+        <y>87</y>
+        <width>71</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Amplitude</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_37">
+      <property name="geometry">
+       <rect>
+        <x>74</x>
+        <y>23</y>
+        <width>71</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Vertical</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_38">
+      <property name="geometry">
+       <rect>
+        <x>74</x>
+        <y>73</y>
+        <width>71</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Horizontal</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Rotating">
+     <attribute name="title">
+      <string>Rotating</string>
+     </attribute>
+     <widget class="QLabel" name="rot_veramp_label">
+      <property name="geometry">
+       <rect>
+        <x>484</x>
+        <y>30</y>
+        <width>31</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QSlider" name="rot_freq">
+      <property name="geometry">
+       <rect>
+        <x>204</x>
+        <y>120</y>
+        <width>241</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>20</number>
+      </property>
+      <property name="pageStep">
+       <number>4</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="tickPosition">
+       <enum>QSlider::TicksAbove</enum>
+      </property>
+      <property name="tickInterval">
+       <number>0</number>
+      </property>
+     </widget>
+     <widget class="QSlider" name="rot_veramp">
+      <property name="geometry">
+       <rect>
+        <x>204</x>
+        <y>20</y>
+        <width>241</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>20</number>
+      </property>
+      <property name="pageStep">
+       <number>4</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="tickPosition">
+       <enum>QSlider::TicksAbove</enum>
+      </property>
+      <property name="tickInterval">
+       <number>0</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="rot_freq_plus">
+      <property name="geometry">
+       <rect>
+        <x>454</x>
+        <y>130</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="rot_veramp_minus">
+      <property name="geometry">
+       <rect>
+        <x>174</x>
+        <y>30</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="rot_veramp_plus">
+      <property name="geometry">
+       <rect>
+        <x>454</x>
+        <y>30</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QLabel" name="rot_freq_label">
+      <property name="geometry">
+       <rect>
+        <x>484</x>
+        <y>80</y>
+        <width>31</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_41">
+      <property name="geometry">
+       <rect>
+        <x>74</x>
+        <y>23</y>
+        <width>71</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Vertical</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_42">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>130</y>
+        <width>81</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Frequency</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="rot_horamp_plus">
+      <property name="geometry">
+       <rect>
+        <x>454</x>
+        <y>80</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_43">
+      <property name="geometry">
+       <rect>
+        <x>74</x>
+        <y>73</y>
+        <width>71</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Horizontal</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="rot_freq_minus">
+      <property name="geometry">
+       <rect>
+        <x>174</x>
+        <y>130</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_44">
+      <property name="geometry">
+       <rect>
+        <x>74</x>
+        <y>37</y>
+        <width>71</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Amplitude</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="rot_horamp_label">
+      <property name="geometry">
+       <rect>
+        <x>484</x>
+        <y>130</y>
+        <width>31</width>
+        <height>17</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QSlider" name="rot_horamp">
+      <property name="geometry">
+       <rect>
+        <x>204</x>
+        <y>70</y>
+        <width>241</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>ArrowCursor</cursorShape>
+      </property>
+      <property name="mouseTracking">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>20</number>
+      </property>
+      <property name="pageStep">
+       <number>4</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="tickPosition">
+       <enum>QSlider::TicksAbove</enum>
+      </property>
+      <property name="tickInterval">
+       <number>0</number>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="rot_horamp_minus">
+      <property name="geometry">
+       <rect>
+        <x>174</x>
+        <y>80</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>14</width>
+        <height>14</height>
+       </size>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_46">
+      <property name="geometry">
+       <rect>
+        <x>74</x>
+        <y>87</y>
+        <width>71</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Amplitude</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="apply">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>290</y>
+      <width>89</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Apply</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="quit">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>290</y>
+      <width>89</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Quit</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="stretch">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>290</y>
+      <width>89</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Stretch</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="init_pose">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>290</y>
+      <width>89</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Init_pose</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>rolling_amp</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>rolling_amp_label</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>394</x>
+     <y>106</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>536</x>
+     <y>114</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rolling_freq</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>rolling_freq_label</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>406</x>
+     <y>158</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>525</x>
+     <y>159</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>side_amp</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>side_amp_label</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>370</x>
+     <y>113</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>534</x>
+     <y>114</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>side_freq</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>side_freq_label</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>376</x>
+     <y>155</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>541</x>
+     <y>162</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ver_amp</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ver_amp_label</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>357</x>
+     <y>109</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>537</x>
+     <y>110</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ver_freq</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>ver_freq_label</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>332</x>
+     <y>158</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>540</x>
+     <y>157</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pipe_amp</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>pipe_amp_label</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>410</x>
+     <y>115</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>534</x>
+     <y>111</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pipe_freq</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>pipe_freq_label</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>436</x>
+     <y>164</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>535</x>
+     <y>157</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pipe_phi</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>pipe_phi_label</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>309</x>
+     <y>206</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>536</x>
+     <y>205</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pipe_nu</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>pipe_nu_label</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>407</x>
+     <y>269</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>544</x>
+     <y>260</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sinus_veramp</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>sinus_veramp_label</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>417</x>
+     <y>114</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>522</x>
+     <y>106</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sinus_horamp</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>sinus_horamp_label</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>427</x>
+     <y>151</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>519</x>
+     <y>153</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>sinus_freq</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>sinus_freq_label</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>365</x>
+     <y>215</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>531</x>
+     <y>205</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rot_veramp</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>rot_veramp_label</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>413</x>
+     <y>109</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>527</x>
+     <y>105</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rot_horamp</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>rot_freq_label</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>427</x>
+     <y>154</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>537</x>
+     <y>159</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>rot_freq</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>rot_horamp_label</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>391</x>
+     <y>210</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>522</x>
+     <y>204</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
