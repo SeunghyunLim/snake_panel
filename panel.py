@@ -515,8 +515,21 @@ class Ui_GaitControl(object):
         self.rot_freq.valueChanged['int'].connect(self.rot_horamp_label.setNum)
 
         self.rolling_amp.valueChanged['int'].connect(self.update_amp)
-        self.rolling_amp.valueChanged['int'].connect(self.update_amp)
-        self.rolling_amp.valueChanged['int'].connect(self.update_amp)
+        self.rolling_freq.valueChanged['int'].connect(self.update_freq)
+        self.side_amp.valueChanged['int'].connect(self.update_amp)
+        self.side_freq.valueChanged['int'].connect(self.update_freq)
+        self.ver_amp.valueChanged['int'].connect(self.update_amp)
+        self.ver_freq.valueChanged['int'].connect(self.update_freq)
+        self.pipe_amp.valueChanged['int'].connect(self.update_amp)
+        self.pipe_freq.valueChanged['int'].connect(self.update_freq)
+        self.pipe_phi.valueChanged['int'].connect(self.update_phi)
+        self.pipe_nu.valueChanged['int'].connect(self.update_nu)
+        self.sinus_veramp.valueChanged['int'].connect(self.update_amp)
+        self.sinus_horamp.valueChanged['int'].connect(self.update_hor_amp)
+        self.sinus_freq.valueChanged['int'].connect(self.update_freq)
+        self.rot_veramp.valueChanged['int'].connect(self.update_amp)
+        self.rot_horamp.valueChanged['int'].connect(self.update_hor_amp)
+        self.rot_freq.valueChanged['int'].connect(self.update_freq)
 
         self.functions(GaitControl)
 
@@ -634,7 +647,7 @@ class Ui_GaitControl(object):
         global frequency
         frequency = value
 
-    def update_hor_amplitude(self, value):
+    def update_hor_amp(self, value):
         global hor_amplitude
         hor_amplitude = value
 
