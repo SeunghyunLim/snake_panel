@@ -12,13 +12,14 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from std_msgs.msg import Float64
 from snake_panel.msg import gaitparam
 
-global amplitude, frequency, hor_amplitude, phi, nu
+global amplitude, frequency, hor_amplitude, phi, nu, gait
 
 amplitude = 0
 frequency = 0
 hor_amplitude = 0
 phi = 0
 nu = 0
+gait = "None"
 
 class Ui_GaitControl(object):
     def setupUi(self, GaitControl):
@@ -622,6 +623,7 @@ class Ui_GaitControl(object):
         ## Widget
         self.quit.clicked.connect(self.quit_button)
         self.Reset.clicked.connect(self.reset_button)
+        self.tabWidget.currentChanged.connect(self.current_idx)
 
         ## Rolling
 
@@ -641,8 +643,27 @@ class Ui_GaitControl(object):
         QtCore.QCoreApplication.instance().quit()
         rospy.signal_shutdown("Quit the slider")
 
+    def current_idx(self):
+        global gait
+        idx = self.tabWidget.currentIndex()
+        if idx == 0:
+            gait = "Rolling"
+        elif idx == 1:
+            gait = "Sidewinding"
+        elif idx == 2:
+            gait = "Vertical"
+        elif idx == 3:
+            gait = "Pipe-Crawling"
+        elif idx == 4:
+            gait = "Sinuslifting"
+        elif idx == 5:
+            gait = "Rotating"
+        else:
+            gait = "None"
+
     def reset_button(self):
-        global amplitude, frequency, hor_amplitude, phi, nu
+        global amplitude, frequency, hor_amplitude, phi, nu, gait
+        gait = "None"
         amplitude = 0
         frequency = 0
         hor_amplitude = 0
@@ -687,16 +708,17 @@ class Ui_GaitControl(object):
         nu = value
 
 def talker():
-    global amplitude, frequency, hor_amplitude, phi, nu
+    global amplitude, frequency, hor_amplitude, phi, nu, gait
     pub = rospy.Publisher('gait_param', gaitparam, queue_size=10)
     while not rospy.is_shutdown():
-        global amplitude, frequency, hor_amplitude, phi, nu
+        global amplitude, frequency, hor_amplitude, phi, nu, gait
         params = gaitparam()
         params.amp = float(amplitude)
         params.freq = float(frequency)
         params.hor_amp = float(hor_amplitude)
         params.phi = float(phi)
         params.nu = float(nu)
+        params.gait = gait
         pub.publish(params)
         rospy.sleep(0.1)
 
