@@ -660,11 +660,19 @@ class Ui_GaitControl(object):
         nu = value
 
 def talker():
-    global amplitude
-    pub = rospy.Publisher('amp', Float64, queue_size=10)
+    global amplitude, frequency, hor_amplitude, phi, nu
+    amp_pub = rospy.Publisher('amp', Float64, queue_size=10)
+    freq_pub = rospy.Publisher('freq', Float64, queue_size=10)
+    hor_amp_pub = rospy.Publisher('hor_amp', Float64, queue_size=10)
+    phi_pub = rospy.Publisher('phi', Float64, queue_size=10)
+    nu_pub = rospy.Publisher('nu', Float64, queue_size=10)
     while not rospy.is_shutdown():
-        global amplitude
-        pub.publish(float(amplitude))
+        global amplitude, frequency, hor_amplitude, phi, nu
+        amp_pub.publish(float(amplitude))
+        freq_pub.publish(float(frequency))
+        hor_amp_pub.publish(float(hor_amplitude))
+        phi_pub.publish(float(phi))
+        nu_pub.publish(float(nu))
         rospy.sleep(0.1)
 
 def talker_thread():
