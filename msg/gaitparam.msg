@@ -1,5 +1,5 @@
-float64	amp
-float64	freq
-float64	hor_amp
-float64	phi
-float64	nu
+float32 amp
+float32 freq
+float32 hor_amp
+float32 phi
+float32 nu

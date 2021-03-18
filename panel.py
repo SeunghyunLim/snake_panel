@@ -10,6 +10,7 @@ import rospy
 import threading
 from PyQt5 import QtCore, QtGui, QtWidgets
 from std_msgs.msg import Float64
+from snake_panel.msg import gaitparam
 
 global amplitude, frequency, hor_amplitude, phi, nu
 
@@ -487,9 +488,9 @@ class Ui_GaitControl(object):
         self.stretch = QtWidgets.QPushButton(self.dockWidgetContents)
         self.stretch.setGeometry(QtCore.QRect(130, 290, 89, 25))
         self.stretch.setObjectName("stretch")
-        self.init_pose = QtWidgets.QPushButton(self.dockWidgetContents)
-        self.init_pose.setGeometry(QtCore.QRect(230, 290, 89, 25))
-        self.init_pose.setObjectName("init_pose")
+        self.Reset = QtWidgets.QPushButton(self.dockWidgetContents)
+        self.Reset.setGeometry(QtCore.QRect(230, 290, 89, 25))
+        self.Reset.setObjectName("Reset")
         GaitControl.setWidget(self.dockWidgetContents)
 
         self.retranslateUi(GaitControl)
@@ -615,11 +616,12 @@ class Ui_GaitControl(object):
         self.apply.setText(_translate("GaitControl", "Apply"))
         self.quit.setText(_translate("GaitControl", "Quit"))
         self.stretch.setText(_translate("GaitControl", "Stretch"))
-        self.init_pose.setText(_translate("GaitControl", "Init_pose"))
+        self.Reset.setText(_translate("GaitControl", "Reset"))
 
     def functions(self, GaitControl):
         ## Widget
         self.quit.clicked.connect(self.quit_button)
+        self.Reset.clicked.connect(self.reset_button)
 
         ## Rolling
 
@@ -638,6 +640,31 @@ class Ui_GaitControl(object):
     def quit_button(self):
         QtCore.QCoreApplication.instance().quit()
         rospy.signal_shutdown("Quit the slider")
+
+    def reset_button(self):
+        global amplitude, frequency, hor_amplitude, phi, nu
+        amplitude = 0
+        frequency = 0
+        hor_amplitude = 0
+        phi = 0
+        nu = 0
+        self.rolling_amp.setValue(0)
+        self.rolling_freq.setValue(0)
+        self.side_amp.setValue(0)
+        self.side_freq.setValue(0)
+        self.ver_amp.setValue(0)
+        self.ver_freq.setValue(0)
+        self.pipe_amp.setValue(0)
+        self.pipe_freq.setValue(0)
+        self.pipe_phi.setValue(0)
+        self.pipe_nu.setValue(0)
+        self.sinus_veramp.setValue(0)
+        self.sinus_horamp.setValue(0)
+        self.sinus_freq.setValue(0)
+        self.rot_veramp.setValue(0)
+        self.rot_horamp.setValue(0)
+        self.rot_freq.setValue(0)
+
 
     def update_amp(self, value):
         global amplitude
@@ -661,18 +688,16 @@ class Ui_GaitControl(object):
 
 def talker():
     global amplitude, frequency, hor_amplitude, phi, nu
-    amp_pub = rospy.Publisher('amp', Float64, queue_size=10)
-    freq_pub = rospy.Publisher('freq', Float64, queue_size=10)
-    hor_amp_pub = rospy.Publisher('hor_amp', Float64, queue_size=10)
-    phi_pub = rospy.Publisher('phi', Float64, queue_size=10)
-    nu_pub = rospy.Publisher('nu', Float64, queue_size=10)
+    pub = rospy.Publisher('gait_param', gaitparam, queue_size=10)
     while not rospy.is_shutdown():
         global amplitude, frequency, hor_amplitude, phi, nu
-        amp_pub.publish(float(amplitude))
-        freq_pub.publish(float(frequency))
-        hor_amp_pub.publish(float(hor_amplitude))
-        phi_pub.publish(float(phi))
-        nu_pub.publish(float(nu))
+        params = gaitparam()
+        params.amp = float(amplitude)
+        params.freq = float(frequency)
+        params.hor_amp = float(hor_amplitude)
+        params.phi = float(phi)
+        params.nu = float(nu)
+        pub.publish(params)
         rospy.sleep(0.1)
 
 def talker_thread():
