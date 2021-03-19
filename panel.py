@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 # Form implementation generated from reading ui file 'panel.ui'
@@ -429,10 +430,10 @@ class Ui_GaitControl(object):
         self.rot_veramp_plus.setGeometry(QtCore.QRect(454, 30, 21, 21))
         self.rot_veramp_plus.setIconSize(QtCore.QSize(14, 14))
         self.rot_veramp_plus.setObjectName("rot_veramp_plus")
-        self.rot_freq_label = QtWidgets.QLabel(self.Rotating)
-        self.rot_freq_label.setGeometry(QtCore.QRect(484, 80, 31, 17))
-        self.rot_freq_label.setAlignment(QtCore.Qt.AlignCenter)
-        self.rot_freq_label.setObjectName("rot_freq_label")
+        self.rot_horamp_label = QtWidgets.QLabel(self.Rotating)
+        self.rot_horamp_label.setGeometry(QtCore.QRect(484, 80, 31, 17))
+        self.rot_horamp_label.setAlignment(QtCore.Qt.AlignCenter)
+        self.rot_horamp_label.setObjectName("rot_freq_label")
         self.label_41 = QtWidgets.QLabel(self.Rotating)
         self.label_41.setGeometry(QtCore.QRect(74, 23, 71, 20))
         self.label_41.setAlignment(QtCore.Qt.AlignCenter)
@@ -457,10 +458,10 @@ class Ui_GaitControl(object):
         self.label_44.setGeometry(QtCore.QRect(74, 37, 71, 20))
         self.label_44.setAlignment(QtCore.Qt.AlignCenter)
         self.label_44.setObjectName("label_44")
-        self.rot_horamp_label = QtWidgets.QLabel(self.Rotating)
-        self.rot_horamp_label.setGeometry(QtCore.QRect(484, 130, 31, 17))
-        self.rot_horamp_label.setAlignment(QtCore.Qt.AlignCenter)
-        self.rot_horamp_label.setObjectName("rot_horamp_label")
+        self.rot_freq_label = QtWidgets.QLabel(self.Rotating)
+        self.rot_freq_label.setGeometry(QtCore.QRect(484, 130, 31, 17))
+        self.rot_freq_label.setAlignment(QtCore.Qt.AlignCenter)
+        self.rot_freq_label.setObjectName("rot_horamp_label")
         self.rot_horamp = QtWidgets.QSlider(self.Rotating)
         self.rot_horamp.setGeometry(QtCore.QRect(204, 70, 241, 41))
         self.rot_horamp.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
@@ -500,21 +501,27 @@ class Ui_GaitControl(object):
 
 
         self.rolling_amp.valueChanged['int'].connect(self.rolling_amp_label.setNum)
-        self.rolling_freq.valueChanged['int'].connect(self.rolling_freq_label.setNum)
+        # self.rolling_freq.valueChanged['int'].connect(self.rolling_freq_label.setNum)
+        self.rolling_freq.valueChanged['int'].connect(self.rol_freq_setNum)
         self.side_amp.valueChanged['int'].connect(self.side_amp_label.setNum)
-        self.side_freq.valueChanged['int'].connect(self.side_freq_label.setNum)
+        # self.side_freq.valueChanged['int'].connect(self.side_freq_label.setNum)
+        self.side_freq.valueChanged['int'].connect(self.side_freq_setNum)
         self.ver_amp.valueChanged['int'].connect(self.ver_amp_label.setNum)
-        self.ver_freq.valueChanged['int'].connect(self.ver_freq_label.setNum)
+        # self.ver_freq.valueChanged['int'].connect(self.ver_freq_label.setNum)
+        self.ver_freq.valueChanged['int'].connect(self.ver_freq_setNum)
         self.pipe_amp.valueChanged['int'].connect(self.pipe_amp_label.setNum)
-        self.pipe_freq.valueChanged['int'].connect(self.pipe_freq_label.setNum)
+        # self.pipe_freq.valueChanged['int'].connect(self.pipe_freq_label.setNum)
+        self.pipe_freq.valueChanged['int'].connect(self.pipe_freq_setNum)
         self.pipe_phi.valueChanged['int'].connect(self.pipe_phi_label.setNum)
-        self.pipe_nu.valueChanged['int'].connect(self.pipe_nu_label.setNum)
+        self.pipe_nu.valueChanged['int'].connect(self.pipe_nu_setNum)
         self.sinus_veramp.valueChanged['int'].connect(self.sinus_veramp_label.setNum)
         self.sinus_horamp.valueChanged['int'].connect(self.sinus_horamp_label.setNum)
-        self.sinus_freq.valueChanged['int'].connect(self.sinus_freq_label.setNum)
+        # self.sinus_freq.valueChanged['int'].connect(self.sinus_freq_label.setNum)
+        self.sinus_freq.valueChanged['int'].connect(self.sinus_freq_setNum)
         self.rot_veramp.valueChanged['int'].connect(self.rot_veramp_label.setNum)
-        self.rot_horamp.valueChanged['int'].connect(self.rot_freq_label.setNum)
-        self.rot_freq.valueChanged['int'].connect(self.rot_horamp_label.setNum)
+        self.rot_horamp.valueChanged['int'].connect(self.rot_horamp_label.setNum)
+        #self.rot_freq.valueChanged['int'].connect(self.rot_horamp_label.setNum)
+        self.rot_freq.valueChanged['int'].connect(self.rot_freq_setNum)
 
         self.rolling_amp.valueChanged['int'].connect(self.update_amp)
         self.rolling_freq.valueChanged['int'].connect(self.update_freq)
@@ -536,6 +543,9 @@ class Ui_GaitControl(object):
         self.functions(GaitControl)
 
         QtCore.QMetaObject.connectSlotsByName(GaitControl)
+
+
+
 
     def retranslateUi(self, GaitControl):
         _translate = QtCore.QCoreApplication.translate
@@ -623,19 +633,29 @@ class Ui_GaitControl(object):
         ## Widget
         self.quit.clicked.connect(self.quit_button)
         self.Reset.clicked.connect(self.reset_button)
+        self.apply.clicked.connect(self.current_idx)
         self.tabWidget.currentChanged.connect(self.current_idx)
 
-        ## Rolling
+    def rol_freq_setNum(self, value):
+        self.rolling_freq_label.setNum(value * 0.1)
 
-        ## Sidewinding
+    def side_freq_setNum(self, value):
+        self.side_freq_label.setNum(value * 0.1)
 
-        ## Vertical
+    def ver_freq_setNum(self, value):
+        self.ver_freq_label.setNum(value * 0.1)
 
-        ## Pipe-Crawling
+    def pipe_freq_setNum(self, value):
+        self.pipe_freq_label.setNum(value * 0.1)
 
-        ## Sinuslifting
+    def sinus_freq_setNum(self, value):
+        self.sinus_freq_label.setNum(value * 0.1)
 
-        ## Rotating
+    def rot_freq_setNum(self, value):
+        self.rot_freq_label.setNum(value * 0.1)
+
+    def pipe_nu_setNum(self, value):
+        self.pipe_nu_label.setNum(value * 0.01)
 
 
 
@@ -644,7 +664,7 @@ class Ui_GaitControl(object):
         rospy.signal_shutdown("Quit the slider")
 
     def current_idx(self):
-        global gait
+        global amplitude, frequency, hor_amplitude, phi, nu, gait
         idx = self.tabWidget.currentIndex()
         if idx == 0:
             gait = "Rolling"
@@ -660,6 +680,22 @@ class Ui_GaitControl(object):
             gait = "Rotating"
         else:
             gait = "None"
+        self.rolling_amp.setValue(amplitude)
+        self.rolling_freq.setValue(frequency*10)
+        self.side_amp.setValue(amplitude)
+        self.side_freq.setValue(frequency*10)
+        self.ver_amp.setValue(amplitude)
+        self.ver_freq.setValue(frequency*10)
+        self.pipe_amp.setValue(amplitude)
+        self.pipe_freq.setValue(frequency*10)
+        self.pipe_phi.setValue(phi)
+        self.pipe_nu.setValue(nu*100)
+        self.sinus_veramp.setValue(amplitude)
+        self.sinus_horamp.setValue(hor_amplitude)
+        self.sinus_freq.setValue(frequency*10)
+        self.rot_veramp.setValue(amplitude)
+        self.rot_horamp.setValue(hor_amplitude)
+        self.rot_freq.setValue(frequency*10)
 
     def reset_button(self):
         global amplitude, frequency, hor_amplitude, phi, nu, gait
@@ -693,7 +729,7 @@ class Ui_GaitControl(object):
 
     def update_freq(self, value):
         global frequency
-        frequency = value
+        frequency = value * 0.1
 
     def update_hor_amp(self, value):
         global hor_amplitude
@@ -705,7 +741,7 @@ class Ui_GaitControl(object):
 
     def update_nu(self, value):
         global nu
-        nu = value
+        nu = value * 0.01
 
 def talker():
     global amplitude, frequency, hor_amplitude, phi, nu, gait
