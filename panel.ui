@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>5</number>
     </property>
     <widget class="QWidget" name="Rolling">
      <attribute name="title">
@@ -63,6 +63,9 @@
       </property>
       <property name="maximum">
        <number>20</number>
+      </property>
+      <property name="singleStep">
+       <number>1</number>
       </property>
       <property name="pageStep">
        <number>4</number>
@@ -1535,7 +1538,7 @@
        </size>
       </property>
      </widget>
-     <widget class="QLabel" name="rot_freq_label">
+     <widget class="QLabel" name="rot_horamp_label">
       <property name="geometry">
        <rect>
         <x>484</x>
@@ -1653,7 +1656,7 @@
        <set>Qt::AlignCenter</set>
       </property>
      </widget>
-     <widget class="QLabel" name="rot_horamp_label">
+     <widget class="QLabel" name="rot_freq_label">
       <property name="geometry">
        <rect>
         <x>484</x>
@@ -2020,7 +2023,7 @@
   <connection>
    <sender>rot_horamp</sender>
    <signal>valueChanged(int)</signal>
-   <receiver>rot_freq_label</receiver>
+   <receiver>rot_horamp_label</receiver>
    <slot>setNum(int)</slot>
    <hints>
     <hint type="sourcelabel">
@@ -2036,7 +2039,7 @@
   <connection>
    <sender>rot_freq</sender>
    <signal>valueChanged(int)</signal>
-   <receiver>rot_horamp_label</receiver>
+   <receiver>rot_freq_label</receiver>
    <slot>setNum(int)</slot>
    <hints>
     <hint type="sourcelabel">
