@@ -16,6 +16,16 @@ phi = 0
 nu = 0
 gait = "None"
 
+amplitude_limit = 20
+frequency_limit = 2.0
+phi_limit = 0.2
+nu_limit = 0.2
+
+amplitude_gain = amplitude_limit/20.0
+frequency_gain = frequency_limit/20.0
+phi_gain = phi_limit/20.0
+nu_gain = nu_limit/20.0
+
 class Ui_GaitControl(object):
     def setupUi(self, GaitControl):
         GaitControl.setObjectName("GaitControl")
@@ -495,26 +505,20 @@ class Ui_GaitControl(object):
 
 
         self.rolling_amp.valueChanged['int'].connect(self.rolling_amp_label.setNum)
-        # self.rolling_freq.valueChanged['int'].connect(self.rolling_freq_label.setNum)
         self.rolling_freq.valueChanged['int'].connect(self.rol_freq_setNum)
         self.side_amp.valueChanged['int'].connect(self.side_amp_label.setNum)
-        # self.side_freq.valueChanged['int'].connect(self.side_freq_label.setNum)
         self.side_freq.valueChanged['int'].connect(self.side_freq_setNum)
         self.ver_amp.valueChanged['int'].connect(self.ver_amp_label.setNum)
-        # self.ver_freq.valueChanged['int'].connect(self.ver_freq_label.setNum)
         self.ver_freq.valueChanged['int'].connect(self.ver_freq_setNum)
         self.pipe_amp.valueChanged['int'].connect(self.pipe_amp_label.setNum)
-        # self.pipe_freq.valueChanged['int'].connect(self.pipe_freq_label.setNum)
         self.pipe_freq.valueChanged['int'].connect(self.pipe_freq_setNum)
-        self.pipe_phi.valueChanged['int'].connect(self.pipe_phi_label.setNum)
+        self.pipe_phi.valueChanged['int'].connect(self.pipe_phi_setNum)
         self.pipe_nu.valueChanged['int'].connect(self.pipe_nu_setNum)
         self.sinus_veramp.valueChanged['int'].connect(self.sinus_veramp_label.setNum)
         self.sinus_horamp.valueChanged['int'].connect(self.sinus_horamp_label.setNum)
-        # self.sinus_freq.valueChanged['int'].connect(self.sinus_freq_label.setNum)
         self.sinus_freq.valueChanged['int'].connect(self.sinus_freq_setNum)
         self.rot_veramp.valueChanged['int'].connect(self.rot_veramp_label.setNum)
         self.rot_horamp.valueChanged['int'].connect(self.rot_horamp_label.setNum)
-        #self.rot_freq.valueChanged['int'].connect(self.rot_horamp_label.setNum)
         self.rot_freq.valueChanged['int'].connect(self.rot_freq_setNum)
 
         self.rolling_amp.valueChanged['int'].connect(self.update_amp)
@@ -535,6 +539,7 @@ class Ui_GaitControl(object):
         self.rot_freq.valueChanged['int'].connect(self.update_freq)
 
         self.functions(GaitControl)
+        self.buttonUi(GaitControl)
 
         QtCore.QMetaObject.connectSlotsByName(GaitControl)
 
@@ -631,25 +636,167 @@ class Ui_GaitControl(object):
         self.tabWidget.currentChanged.connect(self.current_idx)
 
     def rol_freq_setNum(self, value):
-        self.rolling_freq_label.setNum(value * 0.1)
+        self.rolling_freq_label.setNum(value * frequency_gain)
 
     def side_freq_setNum(self, value):
-        self.side_freq_label.setNum(value * 0.1)
+        self.side_freq_label.setNum(value * frequency_gain)
 
     def ver_freq_setNum(self, value):
-        self.ver_freq_label.setNum(value * 0.1)
+        self.ver_freq_label.setNum(value * frequency_gain)
 
     def pipe_freq_setNum(self, value):
-        self.pipe_freq_label.setNum(value * 0.1)
+        self.pipe_freq_label.setNum(value * frequency_gain)
 
     def sinus_freq_setNum(self, value):
-        self.sinus_freq_label.setNum(value * 0.1)
+        self.sinus_freq_label.setNum(value * frequency_gain)
 
     def rot_freq_setNum(self, value):
-        self.rot_freq_label.setNum(value * 0.1)
+        self.rot_freq_label.setNum(value * frequency_gain)
 
     def pipe_nu_setNum(self, value):
-        self.pipe_nu_label.setNum(value * 0.01)
+        self.pipe_nu_label.setNum(value * nu_gain)
+
+    def pipe_phi_setNum(self, value):
+        self.pipe_phi_label.setNum(value * phi_gain)
+
+
+    def buttonUi(self, GaitControl):
+        self.rolling_amp_plus.clicked.connect(self.amp_plus)
+        self.side_amp_plus.clicked.connect(self.amp_plus)
+        self.ver_amp_plus.clicked.connect(self.amp_plus)
+        self.pipe_amp_plus.clicked.connect(self.amp_plus)
+        self.sinus_veramp_plus.clicked.connect(self.amp_plus)
+        self.rot_veramp_plus.clicked.connect(self.amp_plus)
+
+        self.rolling_amp_minus.clicked.connect(self.amp_minus)
+        self.side_amp_minus.clicked.connect(self.amp_minus)
+        self.ver_amp_minus.clicked.connect(self.amp_minus)
+        self.pipe_amp_minus.clicked.connect(self.amp_minus)
+        self.sinus_veramp_minus.clicked.connect(self.amp_minus)
+        self.rot_veramp_minus.clicked.connect(self.amp_minus)
+
+        self.sinus_horamp_plus.clicked.connect(self.hor_amp_plus)
+        self.rot_horamp_plus.clicked.connect(self.hor_amp_plus)
+
+        self.sinus_horamp_minus.clicked.connect(self.hor_amp_minus)
+        self.rot_horamp_minus.clicked.connect(self.hor_amp_minus)
+
+        self.rolling_freq_plus.clicked.connect(self.freq_plus)
+        self.side_freq_plus.clicked.connect(self.freq_plus)
+        self.ver_freq_plus.clicked.connect(self.freq_plus)
+        self.pipe_freq_plus.clicked.connect(self.freq_plus)
+        self.sinus_freq_plus.clicked.connect(self.freq_plus)
+        self.rot_freq_plus.clicked.connect(self.freq_plus)
+
+        self.rolling_freq_minus.clicked.connect(self.freq_minus)
+        self.side_freq_minus.clicked.connect(self.freq_minus)
+        self.ver_freq_minus.clicked.connect(self.freq_minus)
+        self.pipe_freq_minus.clicked.connect(self.freq_minus)
+        self.sinus_freq_minus.clicked.connect(self.freq_minus)
+        self.rot_freq_minus.clicked.connect(self.freq_minus)
+
+        self.pipe_phi_plus.clicked.connect(self.phi_plus)
+
+        self.pipe_phi_minus.clicked.connect(self.phi_minus)
+
+        self.pipe_nu_plus.clicked.connect(self.nu_plus)
+
+        self.pipe_nu_minus.clicked.connect(self.nu_minus)
+
+## Plus and minus button
+    def amp_plus(self):
+        global amplitude
+        temp_amp = amplitude / amplitude_gain
+        if temp_amp < 20:
+            amplitude = (temp_amp+1)*amplitude_gain
+        self.rolling_amp.setValue(amplitude)
+        self.side_amp.setValue(amplitude)
+        self.ver_amp.setValue(amplitude)
+        self.pipe_amp.setValue(amplitude)
+        self.sinus_veramp.setValue(amplitude)
+        self.rot_veramp.setValue(amplitude)
+
+    def amp_minus(self):
+        global amplitude
+        temp_amp = amplitude / amplitude_gain
+        if int(temp_amp) > 0:
+            amplitude = (temp_amp-1)*amplitude_gain
+        self.rolling_amp.setValue(amplitude)
+        self.side_amp.setValue(amplitude)
+        self.ver_amp.setValue(amplitude)
+        self.pipe_amp.setValue(amplitude)
+        self.sinus_veramp.setValue(amplitude)
+        self.rot_veramp.setValue(amplitude)
+
+    def hor_amp_plus(self):
+        global hor_amplitude
+        temp_amp = hor_amplitude / amplitude_gain
+        if temp_amp < 20:
+            hor_amplitude = (temp_amp+1)*amplitude_gain
+        self.sinus_horamp.setValue(hor_amplitude)
+        self.rot_horamp.setValue(hor_amplitude)
+
+    def hor_amp_minus(self):
+        global hor_amplitude
+        temp_amp = hor_amplitude / amplitude_gain
+        if int(temp_amp) > 0:
+            hor_amplitude = (temp_amp-1)*amplitude_gain
+        self.sinus_horamp.setValue(hor_amplitude)
+        self.rot_horamp.setValue(hor_amplitude)
+
+    def freq_plus(self):
+        global frequency
+        temp_freq = frequency / frequency_gain
+        if temp_freq < 20:
+            frequency = (temp_freq+1)*frequency_gain
+        self.rolling_freq.setValue(frequency/frequency_gain)
+        self.side_freq.setValue(frequency/frequency_gain)
+        self.ver_freq.setValue(frequency/frequency_gain)
+        self.pipe_freq.setValue(frequency/frequency_gain)
+        self.sinus_freq.setValue(frequency/frequency_gain)
+        self.rot_freq.setValue(frequency/frequency_gain)
+
+    def freq_minus(self):
+        global frequency
+        temp_freq = frequency / frequency_gain
+        if int(temp_freq) > 0:
+            frequency = (temp_freq-1)*frequency_gain
+        self.rolling_freq.setValue(frequency/frequency_gain)
+        self.side_freq.setValue(frequency/frequency_gain)
+        self.ver_freq.setValue(frequency/frequency_gain)
+        self.pipe_freq.setValue(frequency/frequency_gain)
+        self.sinus_freq.setValue(frequency/frequency_gain)
+        self.rot_freq.setValue(frequency/frequency_gain)
+
+    def phi_plus(self):
+        global phi
+        temp_phi = phi / phi_gain
+        if temp_phi < 20:
+            phi = (temp_phi+1)*phi_gain
+        self.pipe_phi.setValue(phi/phi_gain)
+
+    def phi_minus(self):
+        global phi
+        temp_phi = phi / phi_gain
+        if temp_phi > 0:
+            phi = (temp_phi-1)*phi_gain
+        self.pipe_phi.setValue(phi/phi_gain)
+
+    def nu_plus(self):
+        global nu
+        temp_nu = nu / nu_gain
+        if temp_nu < 20:
+            nu = (temp_nu+1)*nu_gain
+        self.pipe_nu.setValue(nu/nu_gain)
+
+    def nu_minus(self):
+        global nu
+        temp_nu = nu / nu_gain
+        if temp_nu > 0:
+            nu = (temp_nu-1)*nu_gain
+        self.pipe_nu.setValue(nu/nu_gain)
+        print(nu_gain)
+
 
 
 
@@ -675,21 +822,21 @@ class Ui_GaitControl(object):
         else:
             gait = "None"
         self.rolling_amp.setValue(amplitude)
-        self.rolling_freq.setValue(frequency*10)
+        self.rolling_freq.setValue(frequency/frequency_gain)
         self.side_amp.setValue(amplitude)
-        self.side_freq.setValue(frequency*10)
+        self.side_freq.setValue(frequency/frequency_gain)
         self.ver_amp.setValue(amplitude)
-        self.ver_freq.setValue(frequency*10)
+        self.ver_freq.setValue(frequency/frequency_gain)
         self.pipe_amp.setValue(amplitude)
-        self.pipe_freq.setValue(frequency*10)
-        self.pipe_phi.setValue(phi)
-        self.pipe_nu.setValue(nu*100)
+        self.pipe_freq.setValue(frequency/frequency_gain)
+        self.pipe_phi.setValue(phi/phi_gain)
+        self.pipe_nu.setValue(nu/nu_gain)
         self.sinus_veramp.setValue(amplitude)
         self.sinus_horamp.setValue(hor_amplitude)
-        self.sinus_freq.setValue(frequency*10)
+        self.sinus_freq.setValue(frequency/frequency_gain)
         self.rot_veramp.setValue(amplitude)
         self.rot_horamp.setValue(hor_amplitude)
-        self.rot_freq.setValue(frequency*10)
+        self.rot_freq.setValue(frequency/frequency_gain)
 
     def reset_button(self):
         global amplitude, frequency, hor_amplitude, phi, nu, gait
@@ -723,7 +870,7 @@ class Ui_GaitControl(object):
 
     def update_freq(self, value):
         global frequency
-        frequency = value * 0.1
+        frequency = value * frequency_gain
 
     def update_hor_amp(self, value):
         global hor_amplitude
@@ -731,14 +878,13 @@ class Ui_GaitControl(object):
 
     def update_phi(self, value):
         global phi
-        phi = value
+        phi = value * phi_gain
 
     def update_nu(self, value):
         global nu
-        nu = value * 0.01
+        nu = value * nu_gain
 
 def talker():
-    global amplitude, frequency, hor_amplitude, phi, nu, gait
     pub = rospy.Publisher('gait_param', gaitparam, queue_size=10)
     while not rospy.is_shutdown():
         global amplitude, frequency, hor_amplitude, phi, nu, gait
