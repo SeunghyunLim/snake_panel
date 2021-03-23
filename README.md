@@ -1,5 +1,8 @@
 # snake_panel
 PyQt based control panel for the locomotion of snake robot.
+'''
+rosrun snake_panel panel.py
+'''
 
 ROS topic message type, __/gait_param__ has 6 elements:
 - /amp : float32, range 0~20
