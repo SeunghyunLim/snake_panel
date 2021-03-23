@@ -27,6 +27,9 @@ phi_gain = phi_limit/20.0
 nu_gain = nu_limit/20.0
 
 class Ui_GaitControl(object):
+    ################################################################
+    ####################### UI configuration #######################
+    ################################################################
     def setupUi(self, GaitControl):
         GaitControl.setObjectName("GaitControl")
         GaitControl.resize(673, 357)
@@ -502,8 +505,6 @@ class Ui_GaitControl(object):
         self.retranslateUi(GaitControl)
         self.tabWidget.setCurrentIndex(0)
 
-
-
         self.rolling_amp.valueChanged['int'].connect(self.rolling_amp_label.setNum)
         self.rolling_freq.valueChanged['int'].connect(self.rol_freq_setNum)
         self.side_amp.valueChanged['int'].connect(self.side_amp_label.setNum)
@@ -542,9 +543,6 @@ class Ui_GaitControl(object):
         self.buttonUi(GaitControl)
 
         QtCore.QMetaObject.connectSlotsByName(GaitControl)
-
-
-
 
     def retranslateUi(self, GaitControl):
         _translate = QtCore.QCoreApplication.translate
@@ -635,31 +633,6 @@ class Ui_GaitControl(object):
         self.apply.clicked.connect(self.current_idx)
         self.tabWidget.currentChanged.connect(self.current_idx)
 
-    def rol_freq_setNum(self, value):
-        self.rolling_freq_label.setNum(value * frequency_gain)
-
-    def side_freq_setNum(self, value):
-        self.side_freq_label.setNum(value * frequency_gain)
-
-    def ver_freq_setNum(self, value):
-        self.ver_freq_label.setNum(value * frequency_gain)
-
-    def pipe_freq_setNum(self, value):
-        self.pipe_freq_label.setNum(value * frequency_gain)
-
-    def sinus_freq_setNum(self, value):
-        self.sinus_freq_label.setNum(value * frequency_gain)
-
-    def rot_freq_setNum(self, value):
-        self.rot_freq_label.setNum(value * frequency_gain)
-
-    def pipe_nu_setNum(self, value):
-        self.pipe_nu_label.setNum(value * nu_gain)
-
-    def pipe_phi_setNum(self, value):
-        self.pipe_phi_label.setNum(value * phi_gain)
-
-
     def buttonUi(self, GaitControl):
         self.rolling_amp_plus.clicked.connect(self.amp_plus)
         self.side_amp_plus.clicked.connect(self.amp_plus)
@@ -703,7 +676,36 @@ class Ui_GaitControl(object):
 
         self.pipe_nu_minus.clicked.connect(self.nu_minus)
 
-## Plus and minus button
+    ###############################################################
+    ######################## Label scaling ########################
+    ###############################################################
+    def rol_freq_setNum(self, value):
+        self.rolling_freq_label.setNum(value * frequency_gain)
+
+    def side_freq_setNum(self, value):
+        self.side_freq_label.setNum(value * frequency_gain)
+
+    def ver_freq_setNum(self, value):
+        self.ver_freq_label.setNum(value * frequency_gain)
+
+    def pipe_freq_setNum(self, value):
+        self.pipe_freq_label.setNum(value * frequency_gain)
+
+    def sinus_freq_setNum(self, value):
+        self.sinus_freq_label.setNum(value * frequency_gain)
+
+    def rot_freq_setNum(self, value):
+        self.rot_freq_label.setNum(value * frequency_gain)
+
+    def pipe_nu_setNum(self, value):
+        self.pipe_nu_label.setNum(value * nu_gain)
+
+    def pipe_phi_setNum(self, value):
+        self.pipe_phi_label.setNum(value * phi_gain)
+
+    ################################################################
+    #################### + & - button functions ####################
+    ################################################################
     def amp_plus(self):
         global amplitude
         temp_amp = amplitude / amplitude_gain
@@ -797,9 +799,9 @@ class Ui_GaitControl(object):
         self.pipe_nu.setValue(nu/nu_gain)
         print(nu_gain)
 
-
-
-
+    ###############################################################
+    #################### Global widget buttons ####################
+    ###############################################################
     def quit_button(self):
         QtCore.QCoreApplication.instance().quit()
         rospy.signal_shutdown("Quit the slider")
@@ -863,7 +865,9 @@ class Ui_GaitControl(object):
         self.rot_horamp.setValue(0)
         self.rot_freq.setValue(0)
 
-
+    ################################################################
+    #################### Label update by slider ####################
+    ################################################################
     def update_amp(self, value):
         global amplitude
         amplitude = value
